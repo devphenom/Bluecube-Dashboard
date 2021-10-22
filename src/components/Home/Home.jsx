@@ -8,6 +8,7 @@ import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import Avatar from "../../images/avatar.jpg";
 import "./Home.scss";
 import { FavoriteOutlined } from "@material-ui/icons";
+import Card from "../Card/Card";
 
 const DropdownItem = ({ text, icon }) => (
   <span className="dropdown-item">
@@ -91,7 +92,13 @@ const Home = () => {
         </select>
       </section>
 
-      <div className="cards"></div>
+      <div className="cards">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
   );
 };
