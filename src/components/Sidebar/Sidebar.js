@@ -1,11 +1,14 @@
 import React, { useContext } from "react";
 
+// local files imports
+import { ThemeContext } from "../../App";
 import { SidebarConstData, SidebarData } from "./SidebarData";
 import Logo from "../../images/logo.png";
 import Sidelink from "./SideLink";
-import { ThemeContext } from "../../App";
+
 import "./Sidebar.scss";
 
+// default export
 const Sidebar = () => {
   const { setOpenSidebar, openSidebar } = useContext(ThemeContext);
 
@@ -22,6 +25,7 @@ const Sidebar = () => {
           &times;
         </span>
       </a>
+
       <ul className="sidebarList">
         {SidebarConstData.map((val, key) => {
           return <Sidelink val={val} key={key} />;

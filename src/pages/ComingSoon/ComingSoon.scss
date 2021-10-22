@@ -1,0 +1,9 @@
+.coming-soon {
+  margin-left: 20%;
+  padding: 20px;
+  display: block;
+
+  @media screen and(max-width: 320px) {
+    margin-left: 0;
+  }
+}

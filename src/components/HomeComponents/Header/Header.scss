@@ -1,0 +1,124 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .open-btn {
+    display: none;
+    @media screen and(max-width: 320px) {
+      display: inline-block;
+      font-size: 2rem;
+      font-weight: lighter;
+    }
+  }
+  .search {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 10px 4px rgba(0, 0, 0, 0.08);
+    @media screen and(max-width: 320px) {
+      width: 100%;
+      order: 4;
+      margin: 20px auto;
+    }
+    input[type="text"] {
+      width: 100%;
+      margin: 0 10px;
+      padding: 12px 20px;
+      border: none;
+      background: white;
+      outline: none;
+      -webkit-appearance: none;
+    }
+    button {
+      width: 100px;
+      height: 40px;
+      padding: 5px 20px !important;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      background-color: #39379e;
+    }
+  }
+  .notification {
+    color: #39379e;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      left: 0;
+      background-color: white;
+      min-width: 200px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      .dropdown-item {
+        text-align: left;
+        color: black;
+        padding: 20px 10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .text {
+          margin: 0 5px;
+          p {
+            // font-weight: bold;
+            padding: 0;
+            margin: 0;
+            font-size: 0.8rem;
+            &:last-child {
+              font-size: 0.7rem;
+            }
+          }
+        }
+        :hover {
+          color: #39379e;
+        }
+      }
+    }
+    &:hover .dropdown-content {
+      display: block;
+    }
+
+    .badge {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 2.5px 5px;
+      border-radius: 50%;
+      background-color: red;
+      color: white;
+      font-size: 0.8rem;
+    }
+  }
+  .item {
+    position: relative;
+    display: inline-block;
+    margin: 0 30px;
+  }
+  .notify-badge {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    background: rgb(83, 207, 83);
+    text-align: center;
+    border-radius: 50%;
+    color: rgb(83, 207, 83);
+    width: 15px;
+    height: 15px;
+    font-size: 5px;
+  }
+  .avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+}

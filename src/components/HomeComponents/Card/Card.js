@@ -1,15 +1,20 @@
+import React from "react";
+
+// icons
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ThumbDownAltOutlinedIcon from "@material-ui/icons/ThumbDownAltOutlined";
 import RoomOutlinedIcon from "@material-ui/icons/RoomOutlined";
 
-import React from "react";
 import "./Card.scss";
 
 const Card = ({ img }) => {
   const { urls, user } = img;
+
+  // capitalizes first letter of a word
   const capitalizeFirstLetter = (word) => {
-    return `${word.charAt(0).toUpperCase()}${word.slice(1).toLowerCase()}`;
+    return `${word.charAt(0).toUpperCase()}${word.slice(1)}`;
   };
+
   return (
     <div class="card">
       <div className="card-body">

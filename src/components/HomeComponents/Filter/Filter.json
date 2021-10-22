@@ -1,0 +1,121 @@
+[
+  {
+    "title": "World",
+    "options": [
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      }
+    ]
+  },
+  {
+    "title": "Following",
+    "options": [
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      }
+    ]
+  },
+  {
+    "title": "Popular",
+    "options": [
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      }
+    ]
+  },
+  {
+    "title": "Post",
+    "options": [
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      }
+    ]
+  },
+  {
+    "title": "Gender",
+    "options": [
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      }
+    ]
+  },
+  {
+    "title": "Location",
+    "options": [
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      }
+    ]
+  },
+  {
+    "title": "Profession",
+    "options": [
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      },
+      {
+        "val": "v1",
+        "text": "value 1"
+      }
+    ]
+  }
+]

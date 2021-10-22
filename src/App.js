@@ -1,16 +1,12 @@
 import { createContext, useMemo, useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import "./App.scss";
-import Home from "./components/Home/Home";
+
+// compoenents import
+import Home from "./pages/Home/Home";
 import Sidebar from "./components/Sidebar/Sidebar";
 
-const ComingSoon = () => (
-  <>
-    {" "}
-    <h1> Coming Soon!</h1>
-    <p>Page not available yet.</p>
-  </>
-);
+import "./App.scss";
+import ComingSoon from "./pages/ComingSoon/ComingSoon";
 
 export const ThemeContext = createContext();
 const App = () => {
@@ -23,6 +19,7 @@ const App = () => {
     }),
     [openSidebar]
   );
+
   return (
     <ThemeContext.Provider value={memoizedValues}>
       <BrowserRouter>
@@ -30,6 +27,7 @@ const App = () => {
           <Sidebar />
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route path="*" component={ComingSoon} />
           </Switch>
         </div>
       </BrowserRouter>

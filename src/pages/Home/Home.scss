@@ -1,0 +1,23 @@
+#home {
+  margin-left: 20%;
+  padding: 40px;
+  height: 100%;
+  background-color: white;
+  width: 100%;
+  overflow-x: hidden;
+
+  @media screen and(max-width: 320px) {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @media screen and(max-width: 320px) {
+      flex-direction: column;
+    }
+  }
+}
