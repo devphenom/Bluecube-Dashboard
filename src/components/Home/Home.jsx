@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
@@ -6,9 +6,9 @@ import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 
 import Avatar from "../../images/avatar.jpg";
-import "./Home.scss";
-import { FavoriteOutlined } from "@material-ui/icons";
 import Card from "../Card/Card";
+import { debounce } from "../../utils";
+import "./Home.scss";
 
 const DropdownItem = ({ text, icon }) => (
   <span className="dropdown-item">
@@ -22,12 +22,39 @@ const DropdownItem = ({ text, icon }) => (
 );
 
 const Home = () => {
+  const [imgs, setImgs] = useState([]);
+  const [loading, setLoading] = useState("Loading");
+
+  // onChange function
+  const onChange = (val) => {
+    if (!val) val = "youngman";
+    fetch(
+      `https://api.unsplash.com/search/photos?page=1&query=${val}&client_id=bqvADWcNc_1KeDsSVoLmH3AuZ6NoL5VYHRTN1jQnsnk&orientation=portrait`
+    )
+      .then((res) => res.json())
+      .then((res) => setImgs(res.results))
+      .catch((error) => setLoading(error.message));
+  };
+
+  const debounceOnChange = useCallback(debounce(onChange, 400), []);
+
+  useEffect(() => {
+    fetch(
+      "https://api.unsplash.com/search/photos?page=1&query=man&client_id=bqvADWcNc_1KeDsSVoLmH3AuZ6NoL5VYHRTN1jQnsnk&orientation=portrait"
+    )
+      .then((res) => res.json())
+      .then((res) => setImgs(res.results))
+      .catch((error) => setLoading(error.message));
+  }, []);
   return (
     <div id="home">
       <header>
         <div className="search">
           <SearchIcon fontSize="large" />
-          <input type="text" />
+          <input
+            type="text"
+            onChange={(e) => debounceOnChange(e.target.value)}
+          />
           <button type="submit">Search</button>
         </div>
         {/* notification */}
@@ -92,13 +119,13 @@ const Home = () => {
         </select>
       </section>
 
-      <div className="cards">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <section className="cards">
+        {imgs.length < 1 ? (
+          <p>{loading}</p>
+        ) : (
+          imgs.map((img) => <Card img={img} />)
+        )}
+      </section>
     </div>
   );
 };
