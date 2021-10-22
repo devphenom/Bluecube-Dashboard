@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import SearchIcon from "@material-ui/icons/Search";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
@@ -8,6 +8,7 @@ import ChatBubbleIcon from "@material-ui/icons/ChatBubble";
 import Avatar from "../../images/avatar.jpg";
 import Card from "../Card/Card";
 import { debounce } from "../../utils";
+import { ThemeContext } from "../../App";
 import "./Home.scss";
 
 const DropdownItem = ({ text, icon }) => (
@@ -24,10 +25,11 @@ const DropdownItem = ({ text, icon }) => (
 const Home = () => {
   const [imgs, setImgs] = useState([]);
   const [loading, setLoading] = useState("Loading");
+  const { setOpenSidebar } = useContext(ThemeContext);
 
   // onChange function
   const onChange = (val) => {
-    if (!val) val = "youngman";
+    if (!val) val = "black man";
     fetch(
       `https://api.unsplash.com/search/photos?page=1&query=${val}&client_id=bqvADWcNc_1KeDsSVoLmH3AuZ6NoL5VYHRTN1jQnsnk&orientation=portrait`
     )
@@ -39,16 +41,14 @@ const Home = () => {
   const debounceOnChange = useCallback(debounce(onChange, 400), []);
 
   useEffect(() => {
-    fetch(
-      "https://api.unsplash.com/search/photos?page=1&query=man&client_id=bqvADWcNc_1KeDsSVoLmH3AuZ6NoL5VYHRTN1jQnsnk&orientation=portrait"
-    )
-      .then((res) => res.json())
-      .then((res) => setImgs(res.results))
-      .catch((error) => setLoading(error.message));
+    onChange();
   }, []);
   return (
     <div id="home">
       <header>
+        <span className="open-btn" onClick={() => setOpenSidebar(true)}>
+          &#9776;{" "}
+        </span>
         <div className="search">
           <SearchIcon fontSize="large" />
           <input

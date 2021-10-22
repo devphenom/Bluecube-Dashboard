@@ -6,10 +6,25 @@
   width: 100%;
   overflow-x: hidden;
 
+  @media screen and(max-width: 320px) {
+    margin-left: 0;
+    padding: 20px;
+  }
+
   header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+
+    .open-btn {
+      display: none;
+      @media screen and(max-width: 320px) {
+        display: inline-block;
+        font-size: 2rem;
+        font-weight: lighter;
+      }
+    }
     .search {
       width: 75%;
       display: flex;
@@ -19,7 +34,11 @@
       background-color: white;
       border-radius: 5px;
       box-shadow: 0px 2px 10px 4px rgba(0, 0, 0, 0.08);
-
+      @media screen and(max-width: 320px) {
+        width: 100%;
+        order: 4;
+        margin: 20px auto;
+      }
       input[type="text"] {
         width: 100%;
         margin: 0 10px;
@@ -84,9 +103,9 @@
 
       .badge {
         position: absolute;
-        bottom: -10px;
-        right: -10px;
-        padding: 5px 10px;
+        bottom: 0;
+        right: 0;
+        padding: 2.5px 5px;
         border-radius: 50%;
         background-color: red;
         color: white;
@@ -116,6 +135,11 @@
     margin: 20px auto;
     border-radius: 4px;
 
+    @media screen and (max-width: 368px) {
+      display: flex;
+      overflow-x: scroll;
+    }
+
     box-shadow: 0px 2px 10px 4px rgba(0, 0, 0, 0.08);
     select {
       padding: 12px 20px;
@@ -133,6 +157,10 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+
+    @media screen and(max-width: 320px) {
+      flex-direction: column;
+    }
   }
 
   .avatar {

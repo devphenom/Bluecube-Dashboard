@@ -1,3 +1,4 @@
+import { createContext, useMemo, useState } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import "./App.scss";
 import Home from "./components/Home/Home";
@@ -10,16 +11,29 @@ const ComingSoon = () => (
     <p>Page not available yet.</p>
   </>
 );
+
+export const ThemeContext = createContext();
 const App = () => {
+  const [openSidebar, setOpenSidebar] = useState(true);
+
+  const memoizedValues = useMemo(
+    () => ({
+      openSidebar,
+      setOpenSidebar,
+    }),
+    [openSidebar]
+  );
   return (
-    <BrowserRouter>
-      <div id="app">
-        <Sidebar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <ThemeContext.Provider value={memoizedValues}>
+      <BrowserRouter>
+        <div id="app">
+          <Sidebar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    </ThemeContext.Provider>
   );
 };
 
