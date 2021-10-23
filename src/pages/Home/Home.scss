@@ -6,7 +6,7 @@
   width: 100%;
   overflow-x: hidden;
 
-  @media screen and(max-width: 320px) {
+  @media screen and(max-width: 425px) {
     margin-left: 0;
     padding: 20px;
   }
@@ -16,7 +16,7 @@
     flex-wrap: wrap;
     gap: 10px;
 
-    @media screen and(max-width: 320px) {
+    @media screen and(max-width: 425px) {
       flex-direction: column;
     }
   }
