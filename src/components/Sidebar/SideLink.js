@@ -1,17 +1,15 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Sidelink = ({ val }) => {
-  const history = useHistory();
-  const goToPage = (link) => history.push(link);
+  const { pathname } = useLocation();
   return (
-    <li onClick={() => goToPage(val.link)}>
+    <li>
       <Link
         to={val.link}
-        className={`row ${
-          history.location.pathname === val.link ? "active" : ""
-        }`}
+        className={`row ${pathname === val.link ? "active" : ""}`}
       >
+        {console.log(pathname)}
         <div id="icon">{val.icon}</div>
         <div id="title">{val.title}</div>
       </Link>
