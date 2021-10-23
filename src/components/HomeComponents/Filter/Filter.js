@@ -24,8 +24,8 @@ const SelectComponent = ({ select }) => {
 const Filter = () => {
   return (
     <section id="filter">
-      {filter.map((select) => (
-        <SelectComponent select={select} />
+      {filter.map((select, key) => (
+        <SelectComponent select={select} key={key} />
       ))}
     </section>
   );

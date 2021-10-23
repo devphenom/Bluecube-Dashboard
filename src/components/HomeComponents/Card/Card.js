@@ -16,10 +16,10 @@ const Card = ({ img }) => {
   };
 
   return (
-    <div class="card">
+    <div className="card">
       <div className="card-body">
         <img src={urls.thumb} alt="Avatar" />
-        <div class="overlay">
+        <div className="overlay">
           <div className="text">
             <h3>
               <b>{`${capitalizeFirstLetter(user.first_name)}, ${img.likes}`}</b>

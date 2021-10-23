@@ -42,7 +42,7 @@ const debounce = (func, wait) => {
 const Header = ({ onChange }) => {
   const { setOpenSidebar } = useContext(ThemeContext);
 
-  const debounceOnChange = useCallback(() => debounce(onChange, 400), []); // eslint-disable-line react-hooks/exhaustive-deps
+  const debounceOnChange = useCallback(debounce(onChange, 400), []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <header>

@@ -10,7 +10,7 @@ import ComingSoon from "./pages/ComingSoon/ComingSoon";
 
 export const ThemeContext = createContext();
 const App = () => {
-  const [openSidebar, setOpenSidebar] = useState(true);
+  const [openSidebar, setOpenSidebar] = useState(false);
 
   const memoizedValues = useMemo(
     () => ({

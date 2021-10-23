@@ -37,7 +37,7 @@ const Home = () => {
         {imgs.length < 1 ? (
           <p>{loading}</p>
         ) : (
-          imgs.map((img) => <Card img={img} />)
+          imgs.map((img, key) => <Card img={img} key={key} />)
         )}
       </section>
     </div>
