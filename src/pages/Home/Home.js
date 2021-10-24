@@ -9,17 +9,22 @@ import "./Home.scss";
 
 const Home = () => {
   const [imgs, setImgs] = useState([]);
-  const [loading, setLoading] = useState("Loading");
-
+  const [loading, setLoading] = useState("");
   // onChange function fetching API
   const onChange = (val) => {
     if (!val) val = "black man";
     fetch(
-      `https://api.unsplash.com/search/photos?page=1&query=${val}&client_id=bqvADWcNc_1KeDsSVoLmH3AuZ6NoL5VYHRTN1jQnsnk&orientation=portrait`
+      `https://api.unsplash.com/search/photos?page=1&query=${val}&client_id=${process.env.REACT_APP_CLIENT_ID}&orientation=portrait`
     )
       .then((res) => res.json())
-      .then((res) => setImgs(res.results))
-      .catch((error) => setLoading(error.message));
+      .then((res) => {
+        setImgs(res.results);
+        console.log(res);
+        setLoading("");
+      })
+      .catch((error) => {
+        setLoading(error.message);
+      });
   };
 
   // renders on pageLoad/reload
@@ -34,7 +39,7 @@ const Home = () => {
 
       {/* cards */}
       <section className="cards">
-        {imgs.length < 1 ? (
+        {imgs?.length < 1 ? (
           <p>{loading}</p>
         ) : (
           imgs.map((img, key) => <Card img={img} key={key} />)
